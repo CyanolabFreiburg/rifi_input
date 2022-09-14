@@ -23,9 +23,6 @@ neg <- df %>%
 df <- rbind(pos, neg)
 df$Replicon <- "chr"
 df_rifi <- df
-save(df_rifi, file="df_rifi.rda")
-head(df_rifi)
-
 
 counts <- as.matrix(df[,5:ncol(df)])
 rowRanges <- GRanges(seqnames = df[,"Replicon"],
@@ -42,27 +39,6 @@ syne_chr_SE <- SummarizedExperiment(assays=counts,
                            rowRanges=rowRanges, colData=colData)
 setwd("/home/loub/Documents/Hess_lab/HESS_array/SC/se_syneco/")
 save(syne_chr_SE, file="syne_chr_SE.rda")
-
-
-##########################Synechococcus_chromosome#######################
-setwd("/home/loub/microarrays_species/synechococcus/")
-
-load("input_df.RData")
-
-input_df$start <- input_df$position - 50
-
-time <- as.numeric(colnames(input_df[1:6]))
-counts <- as.matrix(input_df[,1:6])#60 time point is excluded due to background effect
-rowRanges <- GRanges(seqnames = "chr",
-                     IRanges(start = as.numeric(input_df[,"start"]), 
-                             end = as.numeric(input_df[,"position"])),
-                     strand = input_df[,"strand"]
-)
-colData <- DataFrame(timepoint = time, replicate = 1)
-synechoco_SE <- SummarizedExperiment(assays = counts,
-                                 rowRanges = rowRanges, colData = colData)
-
-save(synechoco_SE, file="synechoco_SE.rda")
 
 ##########################Synechosystis_chromosome#######################
 setwd("/home/loub/Documents/Hess_lab/HESS_array/iron_depletion/")
