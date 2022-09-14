@@ -1,10 +1,7 @@
 ##########################Prochlorococcus_chromosome#######################
-setwd("/home/loub/microarrays_species/steglish_2010/fromClaudia/Prochlorococcus_single_probes")
-
-load("y2.rdata")
-setwd("/home/loub/microarrays_species/steglish_2010")
+load("fit_se.rdata")
 load("Data_pro_minus60.rdata")
-setwd("/home/loub/microarrays_species/steglish_2010/proc_se/")
+
 
 
 strandSelection <- function(data, Str){
