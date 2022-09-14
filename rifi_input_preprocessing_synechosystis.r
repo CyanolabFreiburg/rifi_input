@@ -1,5 +1,4 @@
 ##########################Synechosystis_chromosome#######################
-setwd("/home/loub/Documents/Hess_lab/HESS_array/SC/")
 load("fit1_SC.rdata")
 time <- c(0, 2, 4, 8, 16, 32, 64)
 chr <- which(fit1$genes$Replicon == "chromosome")
@@ -37,11 +36,9 @@ seqinfo <- data.frame(seqnames = "chr", seqlengths = 3573470,
 
 syne_chr_SE <- SummarizedExperiment(assays=counts,
                            rowRanges=rowRanges, colData=colData)
-setwd("/home/loub/Documents/Hess_lab/HESS_array/SC/se_syneco/")
 save(syne_chr_SE, file="syne_chr_SE.rda")
 
 ##########################Synechosystis_chromosome#######################
-setwd("/home/loub/Documents/Hess_lab/HESS_array/iron_depletion/")
 load("fit1_iron.rdata")
 time <- c(0, 2, 4, 8, 16, 32, 64)
 chr <- which(fit1$genes$Replicon == "chromosome")
@@ -82,6 +79,5 @@ seqinfo <- data.frame(seqnames = "chr", seqlengths = 3573470,
 
 syne_chr_SE_iron <- SummarizedExperiment(assays=counts,
                                     rowRanges=rowRanges, colData=colData)
-setwd("/home/loub/Documents/Hess_lab/HESS_array/iron_depletion/se_iron")
 save(syne_chr_SE_iron, file="syne_chr_SE_iron.rda")
 
