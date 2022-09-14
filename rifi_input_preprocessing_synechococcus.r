@@ -1,7 +1,5 @@
 
 ##########################Synechococcus_chromosome#######################
-setwd("/home/loub/microarrays_species/synechococcus/")
-
 load("input_df.RData")
 
 input_df$start <- input_df$position - 50
